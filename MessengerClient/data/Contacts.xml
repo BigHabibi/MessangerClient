@@ -1,0 +1,18 @@
+
+<chats>
+	<chat name="chat@165847638">
+		<name value ="Peter"/>
+		<messages>
+			<message>
+				<text value="Nice to catch up!!"/>
+				<type value= "send"/>
+				<date value="1634159603097"/>
+			</message>
+			<message>
+				<text value="Nice to catch up!!"/>
+				<type value= "recive"/>
+				<date value="1634159613097"/>
+			</message>
+		</messages>
+	</chat>
+</chats>
