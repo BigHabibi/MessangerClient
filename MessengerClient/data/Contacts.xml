@@ -1,7 +1,7 @@
-
 <chats>
 	<chat name="chat@165847638">
 		<name value ="Peter"/>
+		<ID value = "Peter"/>
 		<messages>
 			<message>
 				<text value="Nice to catch up!!"/>
