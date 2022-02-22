@@ -7,6 +7,7 @@ import javax.xml.parsers.ParserConfigurationException;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
+import org.w3c.dom.Text;
 import org.w3c.dom.Node;
 
 import org.xml.sax.SAXException;
@@ -51,7 +52,7 @@ public class StorageManager
     {
         if(_mainUser == null)
         {
-            System.out.println("POINT");
+            
             try 
             {
                 Document _userDome = getDomForFile("data/profile.xml");
@@ -65,7 +66,7 @@ public class StorageManager
                 String name = pName.getAttribute("value");
                 String ID = pID.getAttribute("value");
 
-                System.out.println(ID);
+                
                 
                 _mainUser = new User(name,ID);
             }
@@ -111,43 +112,48 @@ public class StorageManager
     {
         List<Chat> returnList = new LinkedList<Chat>();
         NodeList chatList = _dom.getElementsByTagName("chat");
-        System.out.println(chatList.getLength());
+        
         for(int i = 0; i < chatList.getLength(); i++)
         {
             Node c = chatList.item(i);
-            returnList.add(getChatForNode(c));
+            returnList.add(getChatForNode( (Element) c));
         }
         return returnList;
     }
-    private Chat getChatForNode(Node c)
+    private Chat getChatForNode(Element c)
     {
-        System.out.println("ChatGrab");
-        Element chatElement = (Element) c;
-        NodeList childs = chatElement.getChildNodes();
+        NodeList childs = c.getChildNodes();
         
-        Element eName     = (Element) childs.item(0);
-        Element eId       = (Element) childs.item(1);
-        Element eMassages = (Element) childs.item(2);
+        Element eName = (Element) childs.item(0);
+        String name = eName.getFirstChild().getNodeValue();
         
-        User chatPartner = new User(eName.getAttribute("value"),eId.getAttribute("value"));
+        String id = c.getAttribute("id");
+
+        Node eMassages =  childs.item(1);
+        
+        User chatPartner = new User(name,id);
         
         return new Chat(_mainUser, chatPartner, getMessagesForChat(eMassages.getChildNodes(), chatPartner));
      }
     private List<Message> getMessagesForChat(NodeList n, User chatpartner)
     {
-        System.out.println("MessageGrab");
+        
         List<Message> returnList = new LinkedList<Message>();
         for(int i = 0; i< n.getLength(); i++)
         {
+            
             Element eMassage = (Element) n.item(i);
+            
             NodeList childs = eMassage.getChildNodes();
+            
             Element eText       = (Element) childs.item(0);
             Element eSendString = (Element) childs.item(1);
             Element edate       = (Element) childs.item(2);
+
+            String text = eText.getTextContent(); 
+            long epochenZeit = Long.parseLong(edate.getTextContent());
             
-            String text = eText.getAttribute("value");
-            long epochenZeit = Long.parseLong(edate.getAttribute("value"));
-            if(eSendString.getAttribute("value").equals("send"))
+            if(eSendString.getTextContent().equals("send"))
             {
                 returnList.add(new Message(_mainUser, text, epochenZeit));
             }

@@ -22,9 +22,17 @@ public class StartUpMessanger
     public static void main(String[] args)
     {
         StorageManager strgmng = new StorageManager();
+        User user = strgmng.getMainuser();
+        System.out.println("User "+user.getName()+ " has ID:"+user.getId());
+        
         
         List<Chat> chatList = strgmng.getAllChats();
-        System.out.println(chatList.get(0).getUser().getName());   
+        System.out.println(chatList.get(0).getUser().getName());
+        
+        for(Chat c: chatList)
+        {
+            c.
+        }
            
     }
 

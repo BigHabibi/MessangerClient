@@ -1,18 +1,3 @@
-<chats>
-	<chat name="chat@165847638">
-		<name value ="Peter"/>
-		<ID value = "Peter"/>
-		<messages>
-			<message>
-				<text value="Nice to catch up!!"/>
-				<type value= "send"/>
-				<date value="1634159603097"/>
-			</message>
-			<message>
-				<text value="Nice to catch up!!"/>
-				<type value= "recive"/>
-				<date value="1634159613097"/>
-			</message>
-		</messages>
-	</chat>
+<?xml version = "1.0" encoding =  "UTF-8"?>
+<chats><chat id = "1234533389"><name>Hans</name><messages><message><text>ICH HASSE DICH</text><type>recive</type><date>1634154403097</date></message></messages></chat>
 </chats>

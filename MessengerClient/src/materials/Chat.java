@@ -23,4 +23,5 @@ public class Chat
         return _chatPartner.equals(message.getAuthor()) || _mainUser.equals(message.getAuthor());
     }
     
+    
 }

@@ -60,10 +60,8 @@ public class Message
     {
         return _messageDate;
     }
-    /*
-     * Checks if a String is a formated String. 
-     * 
-     * @require text != null
-     */
- 
+    public void messagePrint()
+    {
+        System.out.println(_author.getName()+" said: \""+_messageText+"\"");
+    }
 }
