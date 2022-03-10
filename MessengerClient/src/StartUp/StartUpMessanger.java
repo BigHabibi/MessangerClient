@@ -27,11 +27,19 @@ public class StartUpMessanger
         
         
         List<Chat> chatList = strgmng.getAllChats();
-        System.out.println(chatList.get(0).getUser().getName());
-        
-        for(Chat c: chatList)
+        for(Chat chat: chatList)
         {
-            c.
+            chat.printChat();
+        }
+        System.out.println("_________________________Adding new Message____________");
+        Message message = new Message(user, "HS!");
+        
+        strgmng.saveMessage(message, "1232343389");
+        
+        chatList = strgmng.getAllChats();
+        for(Chat chat: chatList)
+        {
+            chat.printChat();
         }
            
     }

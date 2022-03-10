@@ -1,1 +1,10 @@
-<profile id="#profile#"><name value = "BigHabibi"/><ID   value = "2134123477"/></profile>
+<?xml version = "1.0" encoding =  "UTF-8"?>
+<!DOCTYPE profile[
+	<!ELEMENT profile (name, ID)>
+	<!ELEMENT name (#PCDATA)>
+	<!ELEMENT ID (#PCDATA)>
+]>
+<profile>
+	<name>BigHabibi</name>
+	<ID>2134123477</ID>
+</profile>
