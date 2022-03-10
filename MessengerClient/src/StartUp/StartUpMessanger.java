@@ -6,9 +6,6 @@ import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.util.List;
 
-
-
-
 import materials.Chat;
 import materials.Message;
 import materials.User;
@@ -26,21 +23,7 @@ public class StartUpMessanger
         System.out.println("User "+user.getName()+ " has ID:"+user.getId());
         
         
-        List<Chat> chatList = strgmng.getAllChats();
-        for(Chat chat: chatList)
-        {
-            chat.printChat();
-        }
-        System.out.println("_________________________Adding new Message____________");
-        Message message = new Message(user, "HS!");
-        
-        strgmng.saveMessage(message, "1232343389");
-        
-        chatList = strgmng.getAllChats();
-        for(Chat chat: chatList)
-        {
-            chat.printChat();
-        }
+       
            
     }
 
