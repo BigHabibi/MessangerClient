@@ -173,11 +173,11 @@ public class StorageManager
             
             if(eSendString.getTextContent().equals("send"))
             {
-                returnList.add(new Message(_mainUser, text, epochenZeit));
+                returnList.add(new Message(_mainUser, text, epochenZeit,true));
             }
             else
             {
-                returnList.add(new Message(chatpartner, text, epochenZeit));
+                returnList.add(new Message(chatpartner, text, epochenZeit,false));
             }
         }
         

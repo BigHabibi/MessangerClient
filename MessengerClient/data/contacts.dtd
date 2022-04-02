@@ -1,0 +1,9 @@
+<!ELEMENT chats (chat+)>
+<!ELEMENT chat (name, messages)>
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT messages (message+)>
+<!ELEMENT message (text, type, date)>
+<!ELEMENT text (#PCDATA)>
+<!ELEMENT type (#PCDATA)>
+<!ELEMENT date (#PCDATA)>
+<!ATTLIST chat id CDATA #IMPLIED>

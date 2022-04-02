@@ -6,10 +6,14 @@ import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.util.List;
 
+import javax.swing.SwingUtilities;
+
+
 import materials.Chat;
 import materials.Message;
 import materials.User;
 import persistenz.StorageManager;
+import tools.MessengerTool.MessengerTool;
 
 public class StartUpMessanger
 {
@@ -19,10 +23,15 @@ public class StartUpMessanger
     public static void main(String[] args)
     {
         StorageManager strgmng = new StorageManager();
-        User user = strgmng.getMainuser();
-        System.out.println("User "+user.getName()+ " has ID:"+user.getId());
         
         
+        SwingUtilities.invokeLater(new Runnable()
+        {
+            public void run()
+            {
+                new MessengerTool(strgmng);
+            }
+        });
        
            
     }

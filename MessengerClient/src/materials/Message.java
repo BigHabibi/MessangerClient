@@ -10,6 +10,7 @@ public class Message
 {
     String _messageText;
     Date _messageDate;
+    boolean _send;
     User _author;
     /*
      * The basic constructor for the Message Class. It requires the author and the message text
@@ -17,7 +18,7 @@ public class Message
      * @require author != null
      * @require text != null
      */
-    public Message(User author, String text)
+    public Message(User author, String text, boolean send)
     {
         assert author != null;
         assert text != null;
@@ -26,8 +27,9 @@ public class Message
         _author = author;
         _messageText = text;
         _messageDate = new Date();
+        _send = send;
     }
-    public Message(User author, String text, long epoch)
+    public Message(User author, String text, long epoch, boolean send)
     {
         assert author != null;
         assert text != null;
@@ -37,6 +39,7 @@ public class Message
         _author = author;
         _messageText = text;
         _messageDate = new Date(epoch);
+        _send = send;
     } 
     
     /*
@@ -63,5 +66,9 @@ public class Message
     public void messagePrint()
     {
         System.out.println(_author.getName()+" said: \""+_messageText+"\"");
+    }
+    public boolean wasSend()
+    {
+        return _send;
     }
 }

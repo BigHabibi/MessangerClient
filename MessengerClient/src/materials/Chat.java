@@ -15,7 +15,7 @@ public class Chat
         _messages = messages;
     }
 
-    public User getUser()
+    public User getChatpartner()
     {
         return _chatPartner;
     }
