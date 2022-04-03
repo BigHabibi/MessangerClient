@@ -1,7 +1,10 @@
 package tools.MessageDisplayTool;
 
 import java.awt.BorderLayout;
+import java.awt.Dimension;
 import java.util.Date;
+import java.util.LinkedList;
+import java.util.List;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -18,6 +21,10 @@ public class JMessage extends JPanel
         setLayout(new BorderLayout());
         add(new JLabel(_displayedMessage.getText()),BorderLayout.CENTER);
         add(new JLabel(getTimeString()),BorderLayout.SOUTH);
+//        Dimension dim = new Dimension(200, 30);
+//        setMaximumSize(dim);
+//        setPreferredSize(dim);
+        setSize(getPreferredSize());
         
     }
     
@@ -41,6 +48,16 @@ public class JMessage extends JPanel
     public boolean wasSendByMainUser()
     {
         return _displayedMessage.wasSend();
+    }
+    public static List<JMessage> convertToJMessage(List<Message> messages)
+    {
+    	List<JMessage> returnList = new LinkedList<JMessage>();
+    	for(Message message: messages)
+    	{
+    		returnList.add(new JMessage(message));
+    	}
+    	
+    	return returnList;
     }
     
 }

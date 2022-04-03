@@ -51,4 +51,10 @@ public class MessengerToolGUI
     {
         _frame.dispose();
     }
+
+
+	public void refreshFrame() {
+		_frame.repaint();
+		
+	}
 }

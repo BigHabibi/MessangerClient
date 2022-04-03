@@ -4,9 +4,9 @@ import java.util.List;
 
 public class Chat
 {
-    User _chatPartner;
-    User _mainUser;
-    List<Message> _messages;
+    private User _chatPartner;
+    private User _mainUser;
+    private List<Message> _messages;
     
     public Chat(User mainUser, User chatPartner, List<Message> messages) 
     {
@@ -22,6 +22,10 @@ public class Chat
     public boolean isValidMessage(Message message) 
     {
         return _chatPartner.equals(message.getAuthor()) || _mainUser.equals(message.getAuthor());
+    }
+    public List<Message> getMessages()
+    {
+    	return _messages;
     }
     public void printChat()
     {

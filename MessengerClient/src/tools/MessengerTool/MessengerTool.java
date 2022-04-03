@@ -1,7 +1,9 @@
 package tools.MessengerTool;
 
+import materials.Chat;
 import materials.User;
 import persistenz.StorageManager;
+import tools.Observer;
 import tools.ChatSelectionTool.ChatSelectionTool;
 import tools.MessageDisplayTool.MessageDisplayTool;
 import tools.MessageEnterTool.MessageEnterTool;
@@ -37,10 +39,24 @@ public class MessengerTool
         
         
     }
+    private void newChatSelected()
+    {
+    	Chat selectedChat = _chatSelectionTool.getSelectedChat();
+    	System.out.println("ChatSelectedPassed with "+selectedChat.getMessages().size()+" messages");
+    	_messageDisplayTool.setMessages(selectedChat.getMessages());
+    }
 
     private void createListenerForSubtools()
     {
-        // TODO Listener Implementation
+        _chatSelectionTool.observ(new Observer()
+        {
+        	@Override
+        	public void reactOnChange()
+        	{
+        		newChatSelected();
+        		_ui.refreshFrame();
+        	}
+        });
         
     }
 }

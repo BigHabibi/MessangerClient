@@ -30,7 +30,7 @@ public abstract class ObservabelSubtool
     {
         for(Observer observer: _observers)
         {
-            observer.reactToChange();
+            observer.reactOnChange();
         }
     }
 }
