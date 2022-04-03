@@ -16,7 +16,7 @@ public class MessageTest
     @Test
     public void testConstructor() 
     {
-        Message m1 = new Message(u, "Moin!!!");
+        Message m1 = new Message(u, "Moin!!!", true);
         
       
         
